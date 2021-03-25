@@ -42,8 +42,9 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`id`, `username`, `password`, `firstname`, `lastname`,`email`) VALUES
-(1, 'admin', '$2y$10$fLK8s7ZDnM.1lE7XMP.J6OuPbQ.DPUVKBo7rENnQY7gYq0xAzsKJy', 'Nurul', 'Atiqah','vote4me-admin@gmail.com');
+(1, 'admin', '$2y$10$s/ytzJil1AyPYNZXR9tbfeA7Cx92YFQ3hSEST5TFPHVZih.05DXKm', 'Nurul', 'Atiqah','vote4me-admin@gmail.com');
 
+-- password = admin
 -- --------------------------------------------------------
 
 --
@@ -53,6 +54,7 @@ INSERT INTO `admin` (`id`, `username`, `password`, `firstname`, `lastname`,`emai
 CREATE TABLE `candidates` (
   `id` int(11) NOT NULL,
   `position_id` int(11) NOT NULL,
+  `matricno` int(10) NOT NULL,
   `cname` varchar(30) NOT NULL,
   `year` int(1) NOT NULL,
   `level` int(1) NOT NULL,
