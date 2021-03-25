@@ -29,6 +29,13 @@
             <div class="modal-body">
               <form class="form-horizontal" method="POST" action="candidates_add.php" enctype="multipart/form-data">
                 <div class="form-group">
+                    <label for="matricno" class="col-sm-3 control-label">Matric Number</label>
+
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" id="matricno" name="matricno" required>
+                    </div>
+                </div>
+                <div class="form-group">
                     <label for="cname" class="col-sm-3 control-label">Name</label>
 
                     <div class="col-sm-9">
@@ -103,6 +110,13 @@
             <div class="modal-body">
               <form class="form-horizontal" method="POST" action="candidates_edit.php">
                 <input type="hidden" class="id" name="id">
+                <div class="form-group">
+                    <label for="edit_matricno" class="col-sm-3 control-label">Matric Number</label>
+
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" id="edit_matricno" name="matricno" required>
+                    </div>
+                </div>
                 <div class="form-group">
                     <label for="edit_cname" class="col-sm-3 control-label">Name</label>
 
