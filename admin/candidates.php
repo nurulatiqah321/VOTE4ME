@@ -52,6 +52,7 @@
               <table id="example1" class="table table-bordered">
                 <thead>
                   <th class="hidden"></th>
+                  <th>Matric Number</th>
                   <th>Name</th>
                   <th>Year</th>
                   <th>Level</th>
@@ -69,6 +70,7 @@
                       echo "
                         <tr>
                           <td class='hidden'></td>
+                          <td>".$row['matricno']."</td>
                           <td>".$row['cname']."</td>
                           <td>".$row['year']."</td>
                           <td>".$row['level']."</td>
@@ -137,6 +139,7 @@ function getRow(id){
     dataType: 'json',
     success: function(response){
       $('.id').val(response.canid);
+      $('#edit_matricno').val(response.matricno);
       $('#edit_cname').val(response.cname);
       $('#edit_year').val(response.year);
       $('#edit_level').val(response.level);
