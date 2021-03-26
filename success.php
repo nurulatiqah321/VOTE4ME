@@ -150,7 +150,7 @@ $(function(){
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">Dashboard</li>
+        <li class="active">Ballot Submitted</li>
       </ol>
     </section>
 
@@ -201,8 +201,8 @@ $(function(){
 			        	<span class="message"></span>
 			        </div>
 
-						<!-- Welcome message -->
-						<h3> Welcome to Vote4me </h
+						<!-- Welcome message 
+						<h3> Welcome to Vote4me </h3>-->
 	        	</div>
 	        </div>
 	      </section>
