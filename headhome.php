@@ -9,7 +9,7 @@
     width: 100%;
     margin: center;
     padding-top: 1em;
-    background-color: white;    
+    background-color: #1f2833;   
 }
 img{
     width:80px;
@@ -18,6 +18,6 @@ img{
 </style>
 <body>
     <div class="head-home">
-        <a href="index.php"><img src="images/logo(blue).png" alt="logo"> </a>
+        <a href="index.php"><img src="images/logo(blue).png" alt="logo" style="margin-left: 20px;> </a>
 </body>
 </html>
