@@ -17,7 +17,7 @@
   	</div>
 	
 	<div class="panel-heading">
-        	<center><h3 class="panel-title"> Log In</h3></center>
+        	<center><h3 class="panel-title"> Sign In</h3></center>
     	</div>
   
   	<div class="login-box-body">
