@@ -15,9 +15,12 @@
   	<div class="login-logo">
   		<b>VOTE4ME</b>
   	</div>
+	
+	<div class="panel-heading">
+        	<center><h3 class="panel-title"> Log In</h3></center>
+    	</div>
   
   	<div class="login-box-body">
-    	<p class="login-box-msg">Sign in to start your session</p>
 
     	<form action="login.php" method="POST">
       		<div class="form-group has-feedback">
