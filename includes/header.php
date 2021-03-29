@@ -14,11 +14,13 @@
     <link rel="stylesheet" href="bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
   	<!-- Font Awesome -->
   	<link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
+  
   	<!-- Theme style -->
-  	<link rel="stylesheet" href="dist/css/AdminLTE.min.css">
+  	<link rel="stylesheet" href="dist/css/AdminLTE3.css">
+  
   	<!-- AdminLTE Skins. Choose a skin from the css/skins
        folder instead of downloading all of them to reduce the load. -->
-  	<link rel="stylesheet" href="dist/css/skins/_all-skins.min.css">
+  	<link rel="stylesheet" href="dist/css/skins/_all-skins3.css">
 
   	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
