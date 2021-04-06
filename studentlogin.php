@@ -9,16 +9,16 @@
       header('location: home.php');
     }
 ?>
-<?php include 'includes/header.php'; ?>
+<!-- <?php include 'includes/header.php'; ?> -->
 <body class="hold-transition login-page">
 <div class="login-box">
   	<div class="login-logo">
   		<b>VOTE4ME</b>
   	</div>
-	
+
 	<div class="panel-heading">
-        	<center><h3 class="panel-title"> Sign In</h3></center>
-    	</div>
+    	<center><h3 class="panel-title"> Sign In</h3></center>
+    </div>
   
   	<div class="login-box-body">
 
