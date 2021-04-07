@@ -52,27 +52,45 @@
               <table id="example1" class="table table-bordered">
                 <thead>
                   <th class="hidden"></th>
-                  <th>Position</th>
+                  <!-- <th>Matric Number</th> -->
+                  <th>Name</th>
                   <th>Candidate</th>
-                  <th>Voter</th>
                 </thead>
                 <tbody>
                   <?php
-                    $sql = "SELECT *, candidates.cname AS canname, voters.vname AS votname FROM votes LEFT JOIN positions ON positions.id=votes.position_id LEFT JOIN candidates ON candidates.id=votes.candidate_id LEFT JOIN voters ON voters.id=votes.matricno ORDER BY positions.priority ASC";
+                    $sql = "SELECT *, candidates.cname AS canname, voters.vname AS votname
+                    FROM votes 
+                    LEFT JOIN candidates ON candidates.id=votes.candidate_id 
+                    LEFT JOIN voters ON voters.id=votes.matricno";
+                    // GROUP BY votes.matricno";
+                    
                     $query = $conn->query($sql);
                     while($row = $query->fetch_assoc()){
                       echo "
                         <tr>
                           <td class='hidden'></td>
-                          <td>".$row['description']."</td>
-                          <td>".$row['canname']."</td>
+                          
                           <td>".$row['votname']."</td>
+                          <td>".$row['canname']."</td>
                         </tr>
                       ";
-                      // $sql = "SELECT *, candidates.firstname AS canfirst, candidates.lastname AS canlast, voters.firstname AS votfirst, voters.lastname AS votlast FROM votes LEFT JOIN positions ON positions.id=votes.position_id LEFT JOIN candidates ON candidates.id=votes.candidate_id LEFT JOIN voters ON voters.id=votes.voters_id ORDER BY positions.priority ASC";
-                      // <td>".$row['canfirst'].' '.$row['canlast']."</td>
-                      // <td>".$row['votfirst'].' '.$row['votlast']."</td>
+                      
                     }
+                    // <td>".$row['matricno']."</td>
+                    // <td>".$row['canname']."</td>
+
+                    // $sql = "SELECT *, candidates.cname AS canname, voters.vname AS votname
+                    // FROM votes 
+                    // LEFT JOIN positions ON positions.id=votes.position_id 
+                    // LEFT JOIN candidates ON candidates.id=votes.candidate_id 
+                    // LEFT JOIN voters ON voters.id=votes.matricno
+                    // ORDER BY positions.priority ASC";
+
+                    // $sql = "SELECT *, candidates.cname AS canname, voters.vname AS votname
+                    // FROM votes 
+                    // LEFT JOIN candidates ON candidates.id=votes.candidate_id 
+                    // LEFT JOIN voters ON voters.id=votes.matricno
+                    // GROUP BY votes.matricno";
                   ?>
                 </tbody>
               </table>
