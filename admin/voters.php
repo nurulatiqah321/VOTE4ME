@@ -54,8 +54,6 @@
                   <th>Matric Number</th>
                   <th>Name</th>
                   <th>Kulliyyah</th>
-                  <th>Photo</th>
-                  <!-- <th>ID</th> -->
                   <th>Tools</th>
                 </thead>
                 <tbody>
@@ -63,16 +61,11 @@
                     $sql = "SELECT * FROM voters";
                     $query = $conn->query($sql);
                     while($row = $query->fetch_assoc()){
-                      $image = (!empty($row['photo'])) ? '../images/'.$row['photo'] : '../images/profile.jpg';
                       echo "
                         <tr>
                           <td>".$row['matricno']."</td>
                           <td>".$row['vname']."</td> 
                           <td>".$row['kulliyyah']."</td>
-                          <td>
-                            <img src='".$image."' width='30px' height='30px'>
-                            <a href='#edit_photo' data-toggle='modal' class='pull-right photo' data-id='".$row['id']."'><span class='fa fa-edit'></span></a>
-                          </td>
                           
                           <td>
                             <button class='btn btn-success btn-sm edit btn-flat' data-id='".$row['id']."'><i class='fa fa-edit'></i> Edit</button>
@@ -81,7 +74,6 @@
                         </tr>
                       ";
                     }
-                    // <td>".$row['voters_id']."</td>
                   ?>
                 </tbody>
               </table>
@@ -108,12 +100,6 @@ $(function(){
   $(document).on('click', '.delete', function(e){
     e.preventDefault();
     $('#delete').modal('show');
-    var id = $(this).data('id');
-    getRow(id);
-  });
-
-  $(document).on('click', '.photo', function(e){
-    e.preventDefault();
     var id = $(this).data('id');
     getRow(id);
   });
