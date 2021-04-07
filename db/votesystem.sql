@@ -98,8 +98,8 @@ CREATE TABLE `votes` (
   `id` int(11) NOT NULL,
   -- `voters_id` int(7) NOT NULL,
   `matricno` int(10) NOT NULL,
-  `candidate_id` int(11) NOT NULL,
-  `position_id` int(11) NOT NULL
+  `candidate_id` int(11) NOT NULL
+  -- `position_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
