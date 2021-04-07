@@ -81,12 +81,11 @@ CREATE TABLE `positions` (
 
 CREATE TABLE `voters` (
   `id` int(11) NOT NULL,
-  `voters_id` varchar(15) NOT NULL,
+  -- `voters_id` varchar(7) NOT NULL,
+  `matricno` int(10) NOT NULL,
   `password` varchar(60) NOT NULL,
   `vname` varchar(30) NOT NULL,
-  `matricno` int(10) NOT NULL,
-  `kulliyyah` varchar(30) NOT NULL,
-  `photo` varchar(150) NOT NULL
+  `kulliyyah` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -97,10 +96,27 @@ CREATE TABLE `voters` (
 
 CREATE TABLE `votes` (
   `id` int(11) NOT NULL,
-  `voters_id` int(11) NOT NULL,
+  -- `voters_id` int(7) NOT NULL,
   `matricno` int(10) NOT NULL,
   `candidate_id` int(11) NOT NULL,
   `position_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `election list`
+--
+
+CREATE TABLE `electionlist` (
+  `id` int(11) NOT NULL,
+  `title` varchar(30) NOT NULL,
+  `remarks` text NOT NULL,
+  `datetime_start` DATETIME NOT NULL,
+  `datetime_end` DATETIME NOT NULL,
+  -- `datetime_update` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `is_default` tinyint(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -136,6 +152,12 @@ ALTER TABLE `voters`
 --
 ALTER TABLE `votes`
   ADD PRIMARY KEY (`id`);
+  
+--
+-- Indexes for table `electionlist`
+--
+ALTER TABLE `electionlist`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -170,6 +192,12 @@ ALTER TABLE `voters`
 --
 ALTER TABLE `votes`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=81;
+
+--
+-- AUTO_INCREMENT for table `electionlist`
+--
+ALTER TABLE `electionlist`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 ALTER TABLE admin
