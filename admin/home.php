@@ -201,12 +201,12 @@
         datasets: [
           {
             label               : 'Votes',
-            fillColor           : 'rgba(60,141,188,0.9)',
-            strokeColor         : 'rgba(60,141,188,0.8)',
+            fillColor           : 'rgba(94, 186, 182,0.9)',
+            strokeColor         : 'rgba(94, 186, 182,0.8)',
             pointColor          : '#3b8bba',
-            pointStrokeColor    : 'rgba(60,141,188,1)',
+            pointStrokeColor    : 'rgba(94, 186, 182,1)',
             pointHighlightFill  : '#fff',
-            pointHighlightStroke: 'rgba(60,141,188,1)',
+            pointHighlightStroke: 'rgba(94, 186, 182,1)',
             data                : <?php echo $varray; ?>
           }
         ]
