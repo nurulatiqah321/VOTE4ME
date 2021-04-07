@@ -20,7 +20,7 @@
 			$image = (!empty($crow['photo'])) ? '../images/'.$crow['photo'] : '../images/profile.jpg';
 			$candidate .= '
 				<li>
-					'.$input.'<button class="btn btn-primary btn-sm btn-flat clist"><i class="fa fa-user"></i> Manifesto</button><img src="'.$image.'" height="100px" width="100px" class="clist"><span class="cname clist">'.$crow['cname'].'</span>
+					'.$input.'<button class="btn btn-primary btn-sm btn-flat clist"><i class="fa fa-hand-paper-o"></i> Manifesto</button><img src="'.$image.'" height="100px" width="100px" class="clist"><span class="cname clist">'.$crow['cname'].'</span>
 				</li>
 			';
 		}
