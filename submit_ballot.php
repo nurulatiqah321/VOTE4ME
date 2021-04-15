@@ -23,7 +23,7 @@
 						}
 						else{
 							foreach($_POST[$position] as $key => $values){
-								$sql_array[] = "INSERT INTO votes (matricno, candidate_id, position_id) VALUES ('".$voter['id']."', '$values', '$pos_id')";
+								$sql_array[] = "INSERT INTO votes (matricno, candidate_id, position_id) VALUES ('".$voter['matricno']."', '$values', '$pos_id')";
 							}
 
 						}
@@ -31,7 +31,7 @@
 					}
 					else{
 						$candidate = $_POST[$position];
-						$sql_array[] = "INSERT INTO votes (matricno, candidate_id, position_id) VALUES ('".$voter['id']."', '$candidate', '$pos_id')";
+						$sql_array[] = "INSERT INTO votes (matricno, candidate_id, position_id) VALUES ('".$voter['matricno']."', '$candidate', '$pos_id')";
 					}
 
 				}

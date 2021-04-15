@@ -68,13 +68,13 @@
 			        </div>
 
 				    <?php
-				    	$sql = "SELECT * FROM votes WHERE matricno = '".$voter['id']."'";
+				    	$sql = "SELECT * FROM votes WHERE matricno = '".$voter['matricno']."'";
 				    	$vquery = $conn->query($sql);
 				    	if($vquery->num_rows > 0){
 				    		?>
 				    		<div class="text-center">
 					    		<h3>You have already voted for this election.</h3>
-					    		<a href="#view" data-toggle="modal" class="btn btn-flat btn-primary btn-lg">View Ballot</a>
+					    	<!--	<a href="#view" data-toggle="modal" class="btn btn-flat btn-primary btn-lg">View Ballot</a> -->
 					    	</div>
 				    		<?php
 				    	}
@@ -114,7 +114,7 @@
 											$image = (!empty($crow['photo'])) ? 'images/'.$crow['photo'] : 'images/profile.jpg';
 											$candidate .= '
 												<li>
-												'.$input.'<button type="button" class="btn btn-primary btn-sm btn-flat clist platform" data-platform="'.$crow['platform'].'" data-fullname="'.$crow['cname'].'"><i class="fa fa-hand-paper-o"></i> Manisfesto</button><img src="'.$image.'" height="100px" width="100px" class="clist"><span class="cname clist">'.$crow['cname'].'</span>
+												'.$input.'<button type="button" class="btn btn-primary btn-sm btn-flat clist platform" data-platform="'.$crow['platform'].'" data-fullname="'.$crow['cname'].'"><i class="fa fa-user"></i> Manisfesto</button><img src="'.$image.'" height="100px" width="100px" class="clist"><span class="cname clist">'.$crow['cname'].'</span>
 												</li>
 											';
 										}
