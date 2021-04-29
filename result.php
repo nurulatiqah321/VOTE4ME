@@ -11,15 +11,14 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Dashboard
+        RESULT
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">Vote</li>
+        <li class="active">Result</li>
       </ol>
     </section>
 
-    <!-- Main content -->
     <!-- Main content -->
 	      <section class="content">
 	      	<?php
@@ -66,33 +65,51 @@
 			        	<span class="message"></span>
 			        </div>
 
-					<?php
-				    	$sql = "SELECT * FROM votes WHERE matricno = '".$voter['id']."'";
-				    	$vquery = $conn->query($sql);
-				    	if($vquery->num_rows > 0){
-				    		?>
-				    		<div class="text-center">
-					    		<h3>You have already voted for this election.</h3>
-					    		<a href="#view" data-toggle="modal" class="btn btn-flat btn-primary btn-lg">View Ballot</a>
-					    	</div>
-				    		<?php
-				    	}
-				    	else{
-				    		?>
 			    			<!-- Result Table -->
-						    <?php
-							
-								$query = "SELECT max( mark ) as maximu_mark, class FROM student where class ='Four' GROUP BY class";
-         						$results = mysqli_query($conn, $query);
-      
-           						$logged_in_user = mysqli_fetch_assoc($results);
-							
-
-
-							?>
+							<div class="row">
+        <div class="col-xs-12">
+          <div class="box">
+            <div class="box-header with-border">
+            </div>
+            <div class="box-body">
+              <table id="example1" class="table table-bordered">
+                <thead>
+                  <th class="hidden"></th>
+                  <!-- <th>Matric Number</th> -->
+                  <th>Candidate</th>
+                  <th>Total Result</th>
+                </thead>
+                <tbody>
+                  <?php
+                    $connect = mysqli_connect("localhost", "root", "", "vote4me");		
+		    		$sql = "SELECT c.cname, COUNT(v.candidate_id) AS total
+			     			FROM candidates c
+			     			JOIN votes v ON c.id = v.candidate_id
+			    			WHERE  c.position_id = 8
+			     			GROUP BY c.id
+			     			ORDER BY total DESC
+			     			LIMIT 1";
+			     	$result = mysqli_query($connect, $sql);
+                    
+                    while($row = mysqli_fetch_array($result)){
+                      echo "
+                        <tr>
+                          <td class='hidden'></td>
+                          
+                          <td>".strtoupper($row['cname'])."</td>
+                          <td>".$row['total']."</td>
+                        </tr>
+                      ";
+                      
+                    }
+                  ?>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
 				        	<!-- Result Table -->
 							<?php
-				    	}
 
 				    ?>
 	        </div>
