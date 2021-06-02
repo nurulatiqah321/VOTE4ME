@@ -15,6 +15,7 @@
 			while($row = $query->fetch_assoc()){
 				$position = slugify($row['description']);
 				$pos_id = $row['id'];
+				$elec_id = $row['election_id'];
 				if(isset($_POST[$position])){
 					if($row['max_vote'] > 1){
 						if(count($_POST[$position]) > $row['max_vote']){
@@ -23,7 +24,7 @@
 						}
 						else{
 							foreach($_POST[$position] as $key => $values){
-								$sql_array[] = "INSERT INTO votes (matricno, candidate_id, position_id) VALUES ('".$voter['matricno']."', '$values', '$pos_id')";
+								$sql_array[] = "INSERT INTO votes (matricno, candidate_id, position_id, election_id) VALUES ('".$voter['matricno']."', '$values', '$pos_id', '$elec_id')";
 							}
 
 						}
@@ -31,7 +32,7 @@
 					}
 					else{
 						$candidate = $_POST[$position];
-						$sql_array[] = "INSERT INTO votes (matricno, candidate_id, position_id) VALUES ('".$voter['matricno']."', '$candidate', '$pos_id')";
+						$sql_array[] = "INSERT INTO votes (matricno, candidate_id, position_id, election_id) VALUES ('".$voter['matricno']."', '$candidate', '$pos_id', '$elec_id')";
 					}
 
 				}
