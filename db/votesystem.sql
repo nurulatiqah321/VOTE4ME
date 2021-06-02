@@ -53,6 +53,7 @@ INSERT INTO `admin` (`id`, `username`, `password`, `firstname`, `lastname`,`emai
 
 CREATE TABLE `candidates` (
   `id` int(11) NOT NULL,
+  `election_id` varchar(11) NOT NULL,
   `position_id` int(11) NOT NULL,
   `matricno` int(10) NOT NULL,
   `cname` varchar(30) NOT NULL,
@@ -70,6 +71,7 @@ CREATE TABLE `candidates` (
 
 CREATE TABLE `positions` (
   `id` int(11) NOT NULL,
+  `election_id` varchar(11) NOT NULL,
   `description` varchar(50) NOT NULL,
   `max_vote` int(11) NOT NULL,
   `priority` int(11) NOT NULL
@@ -83,12 +85,11 @@ CREATE TABLE `positions` (
 
 CREATE TABLE `voters` (
   `id` int(11) NOT NULL,
- -- `voters_id` varchar(15) NOT NULL,
-  `password` varchar(60) NOT NULL,
-  `vname` varchar(30) NOT NULL,
+  `election_id` varchar(11) NOT NULL,
   `matricno` int(10) NOT NULL,
+  `vname` varchar(30) NOT NULL,
   `kulliyyah` varchar(30) NOT NULL,
-  `photo` varchar(150) NOT NULL
+  `password` varchar(60) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -99,8 +100,8 @@ CREATE TABLE `voters` (
 
 CREATE TABLE `votes` (
   `id` int(11) NOT NULL,
- -- `voters_id` int(11) NOT NULL,
   `matricno` int(10) NOT NULL,
+  `election_id` varchar(11) NOT NULL,
   `candidate_id` int(11) NOT NULL,
   `position_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -113,12 +114,11 @@ CREATE TABLE `votes` (
 
 CREATE TABLE `electionlist` (
   `id` int(11) NOT NULL,
-  `title` varchar(30) NOT NULL,
+  `title_list` varchar(30) NOT NULL,
   `remarks` text NOT NULL,
   `datetime_start` DATETIME NOT NULL,
   `datetime_end` DATETIME NOT NULL,
-  -- `datetime_update` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `is_default` tinyint(1) NOT NULL DEFAULT 0
+  `priority` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -156,6 +156,12 @@ ALTER TABLE `votes`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `electionlist`
+--
+ALTER TABLE `electionlist`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -188,7 +194,12 @@ ALTER TABLE `voters`
 --
 ALTER TABLE `votes`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=81;
-COMMIT;
+  
+--
+-- AUTO_INCREMENT for table `electionlist`
+--
+ALTER TABLE `electionlist`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 ALTER TABLE admin
 ADD roles varchar(12) NOT NULL;
@@ -196,6 +207,7 @@ ADD roles varchar(12) NOT NULL;
 UPDATE admin SET roles='superadmin' WHERE username='admin';
 
 UPDATE `admin` SET `roles` = 'Super Admin' WHERE `admin`.`id` = 1;
+COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
