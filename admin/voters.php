@@ -55,14 +55,14 @@
                   <th>Matric Number</th>
                   <th>Name</th>
                   <th>Kulliyyah</th>
-                  
                   <th>Tools</th>
                 </thead>
                 <tbody>
                   <?php
-                    $sql = "SELECT *, voters.id AS votid FROM voters 
+                    $sql = "SELECT *, electionlist.kulliyyah AS elec_kull, voters.id AS votid
+                    FROM voters 
                     LEFT JOIN electionlist ON electionlist.id=voters.election_id 
-                    ORDER BY electionlist.priority ASC";
+                    ORDER BY priority ASC";
                     $query = $conn->query($sql);
                     while($row = $query->fetch_assoc()){
                       echo "
@@ -70,8 +70,7 @@
                           <td>".$row['title_list']."</td>
                           <td>".$row['matricno']."</td>
                           <td>".$row['vname']."</td> 
-                          <td>".$row['kulliyyah']."</td>
-                          
+                          <td>".$row['elec_kull']."</td>
                           <td>
                             <button class='btn btn-success btn-sm edit btn-flat' data-id='".$row['votid']."'><i class='fa fa-edit'></i> Edit</button>
                             <button class='btn btn-danger btn-sm delete btn-flat' data-id='".$row['votid']."'><i class='fa fa-trash'></i> Delete</button>
