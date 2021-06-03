@@ -17,6 +17,13 @@
                     </div>
                 </div>
                 <div class="form-group">
+                    <label for="kulliyyah" class="col-sm-3 control-label">Kulliyyah</label>
+
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" id="kulliyyah" name="kulliyyah" required>
+                    </div>
+                </div>
+                <div class="form-group">
                     <label for="remarks" class="col-sm-3 control-label">Remarks</label>
 
                     <div class="col-sm-9">
@@ -64,6 +71,13 @@
 
                     <div class="col-sm-9">
                       <input type="text" class="form-control" id="edit_title_list" name="title_list">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="edit_kulliyyah" class="col-sm-3 control-label">Kulliyyah</label>
+
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" id="edit_kulliyyah" name="kulliyyah">
                     </div>
                 </div>
                 <div class="form-group">
