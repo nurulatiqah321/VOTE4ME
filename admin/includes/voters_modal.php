@@ -27,7 +27,18 @@
                     <label for="kulliyyah" class="col-sm-3 control-label">Kulliyyah</label>
 
                     <div class="col-sm-9">
-                      <input type="text" class="form-control" id="kulliyyah" name="kulliyyah" required>
+                      <select class="form-control" id="kulliyyah" name="kulliyyah" required>
+                        <option value="" selected>- Select -</option>
+                        <?php
+                          $sql = "SELECT * FROM electionlist";
+                          $query = $conn->query($sql);
+                          while($row = $query->fetch_assoc()){
+                            echo "
+                              <option value='".$row['id']."'>".$row['kulliyyah']."</option>
+                            ";
+                          }
+                        ?>
+                      </select>
                     </div>
                 </div>
                 <div class="form-group">
@@ -96,7 +107,18 @@
                     <label for="edit_kulliyyah" class="col-sm-3 control-label">Kulliyyah</label>
 
                     <div class="col-sm-9">
-                      <input type="text" class="form-control" id="edit_kulliyyah" name="kulliyyah">
+                      <select class="form-control" id="edit_kulliyyah" name="kulliyyah" required>
+                        <option value="" selected id="posselect"></option>
+                        <?php
+                          $sql = "SELECT * FROM electionlist";
+                          $query = $conn->query($sql);
+                          while($row = $query->fetch_assoc()){
+                            echo "
+                              <option value='".$row['id']."'>".$row['kulliyyah']."</option>
+                            ";
+                          }
+                        ?>
+                      </select>
                     </div>
                 </div>
                 <div class="form-group">
@@ -106,7 +128,7 @@
                       <select class="form-control" id="edit_election" name="election" required>
                         <option value="" selected id="posselect"></option>
                         <?php
-                          $sql = "SELECT * FROM electionlist ORDER BY priority ASC";
+                          $sql = "SELECT * FROM electionlist";
                           $query = $conn->query($sql);
                           while($row = $query->fetch_assoc()){
                             echo "
