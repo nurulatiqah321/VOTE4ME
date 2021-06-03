@@ -3,6 +3,7 @@
 
 	if(isset($_POST['add'])){
 		$title_list = $_POST['title_list'];
+		$kulliyyah = $_POST['kulliyyah'];
 		$remarks = $_POST['remarks'];
 		$datetime_start = $_POST['datetime_start'];
         $datetime_end = $_POST['datetime_end'];
@@ -13,7 +14,7 @@
 
 		$priority = $row['priority'] + 1;
 		
-		$sql = "INSERT INTO electionlist (title_list, remarks, datetime_start, datetime_end, priority) VALUES ('$title_list', '$remarks', '$datetime_start', '$datetime_end', '$priority')";
+		$sql = "INSERT INTO electionlist (title_list, kulliyyah, remarks, datetime_start, datetime_end, priority) VALUES ('$title_list', '$kulliyyah', '$remarks', '$datetime_start', '$datetime_end', '$priority')";
 		if($conn->query($sql)){
 			$_SESSION['success'] = 'Election event added successfully';
 		}
