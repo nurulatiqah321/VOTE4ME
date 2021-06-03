@@ -53,6 +53,7 @@
                 <thead>
                   <th class="hidden"></th>
                   <th>Title</th>
+                  <th>Kulliyyah</th>
                   <th>Remarks</th>
                   <th>Start Date & Time</th>
                   <th>End Date & Time</th>
@@ -60,25 +61,25 @@
                 </thead>
                 <tbody>
                   <?php
-                  $sql = "SELECT * FROM electionlist";
+                  $sql = "SELECT *, electionlist.id AS elecid FROM electionlist";
                   $query = $conn->query($sql);
                     while($row = $query->fetch_assoc()){
                       
                       echo "
                         <tr>
                           <td class='hidden'></td>
-                          <td>".$row['title_list']."</a></td>
+                          <td>".$row['title_list']."</td>
+                          <td>".$row['kulliyyah']."</td>
                           <td>".$row['remarks']."</td>
                           <td>".$row['datetime_start']."</td>
                           <td>".$row['datetime_end']."</td>
                           <td>
-                            <button class='btn btn-success btn-sm edit btn-flat' data-id='".$row['id']."'><i class='fa fa-edit'></i> Edit</button>
-                            <button class='btn btn-danger btn-sm delete btn-flat' data-id='".$row['id']."'><i class='fa fa-trash'></i> Delete</button>
+                            <button class='btn btn-success btn-sm edit btn-flat' data-id='".$row['elecid']."'><i class='fa fa-edit'></i> Edit</button>
+                            <button class='btn btn-danger btn-sm delete btn-flat' data-id='".$row['elecid']."'><i class='fa fa-trash'></i> Delete</button>
                           </td>
                         </tr>
                       ";
                     }
-                    // <td><a href='ballot.php'>".$row['title_list']."</a></td>
                   ?>
                 </tbody>
               </table>
@@ -120,6 +121,7 @@ function getRow(id){
     success: function(response){
       $('.id').val(response.canid);
       $('#edit_title_list').val(response.title_list);
+      $('#edit_kuliyyah').val(response.kuliyyah);
       $('#edit_remarks').val(response.remarks);
       $('#edit_datetime_start').val(response.datetime_start);
       $('#edit_datetime_end').val(response.datetime_end);
