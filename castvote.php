@@ -114,9 +114,10 @@
 											$image = (!empty($crow['photo'])) ? 'images/'.$crow['photo'] : 'images/profile.jpg';
 											$candidate .= '
 												<li>
-												'.$input.'<button type="button" class="btn btn-primary btn-sm btn-flat clist platform" data-platform="'.$crow['platform'].'" data-fullname="'.$crow['cname'].'"><i class="fa fa-user"></i> Manisfesto</button><img src="'.$image.'" height="100px" width="100px" class="clist"><span class="cname clist">'.$crow['cname'].'</span>
+												'.$input.'</button><img src="'.$image.'" height="100px" width="100px" class="clist"><span class="cname clist">'.$crow['cname'].'</span>												
 												</li>
 											';
+											
 										}
 
 										$instruct = ($row['max_vote'] > 1) ? 'You may select up to '.$row['max_vote'].' candidates' : 'Select only one candidate';
@@ -131,19 +132,25 @@
 														<div class="box-body">
 															<p>'.$instruct.'</p>
 															<div id="candidate_list">
-																<ul>
-																	'.$candidate.'
-																</ul>
+																	'.$candidate;'
+																		'.$sql = "SELECT * FROM candidates WHERE position_id='".$row['id']."'";
+																		$cquery = $conn->query($sql);
+																		while($crow = $cquery->fetch_assoc())
+																		{	
+																			echo "<b>Manifesto: ".$instruct = $crow['platform']."</b>";
+																		}
+																	'
 															</div>
 														</div>
 													</div>
 												</div>
 											</div>
-										';
-
+																	';					 
+										
 										$candidate = '';
 
-									}	
+									}
+								}
 
 				        		?>
 				        		<div class="text-center">
@@ -153,7 +160,6 @@
 				        	</form>
 				        	<!-- End Voting Ballot -->
 				    		<?php
-				    	}
 
 				    ?>
 
@@ -180,6 +186,12 @@ $(function(){
 	$('.content').iCheck({
 		checkboxClass: 'icheckbox_flat-green',
 		radioClass: 'iradio_flat-green'
+	});
+
+	$(document).on('click', '.reset', function(e){
+	    e.preventDefault();
+	    var desc = $(this).data('desc');
+	    $('.'+desc).iCheck('uncheck');
 	});
 
 	$(document).on('click', '.platform', function(e){
@@ -224,7 +236,7 @@ $(function(){
 		
 	});
 
-});
+}});
 </script>
 </body>
 </html>
