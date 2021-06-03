@@ -42,9 +42,10 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`id`, `username`, `password`, `firstname`, `lastname`,`email`) VALUES
-(1, 'admin', '$2y$10$fLK8s7ZDnM.1lE7XMP.J6OuPbQ.DPUVKBo7rENnQY7gYq0xAzsKJy', 'Nurul', 'Atiqah','vote4me-admin@gmail.com');
+(1, 'admin', '$2y$10$s/ytzJil1AyPYNZXR9tbfeA7Cx92YFQ3hSEST5TFPHVZih.05DXKm', 'Nurul', 'Atiqah','vote4me-admin@gmail.com');
 
--- password -admin
+-- username = admin
+-- password = admin
 -- --------------------------------------------------------
 
 --
@@ -111,10 +112,10 @@ CREATE TABLE `votes` (
 --
 -- Table structure for table `election list`
 --
-
 CREATE TABLE `electionlist` (
   `id` int(11) NOT NULL,
   `title_list` varchar(30) NOT NULL,
+  `kulliyyah` varchar(30) NOT NULL,
   `remarks` text NOT NULL,
   `datetime_start` DATETIME NOT NULL,
   `datetime_end` DATETIME NOT NULL,
@@ -194,12 +195,13 @@ ALTER TABLE `voters`
 --
 ALTER TABLE `votes`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=81;
-  
+
 --
 -- AUTO_INCREMENT for table `electionlist`
 --
 ALTER TABLE `electionlist`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+
 
 ALTER TABLE admin
 ADD roles varchar(12) NOT NULL;
@@ -208,6 +210,9 @@ UPDATE admin SET roles='superadmin' WHERE username='admin';
 
 UPDATE `admin` SET `roles` = 'Super Admin' WHERE `admin`.`id` = 1;
 COMMIT;
+
+
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
