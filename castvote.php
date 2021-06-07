@@ -11,7 +11,7 @@
 		<!-- Content Header (Page header) -->
 		<section class="content-header">
 			<h1>
-				Dashboard
+				VOTE
 			</h1>
 			<ol class="breadcrumb">
 				<li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -110,16 +110,14 @@
 													}
 												}
 											}
+											$name = $crow['cname'];
+											$manifesto = $crow['platform'];
 											$input = ($row['max_vote'] > 1) ? '<input type="checkbox" class="flat-red '.$slug.'" name="'.$slug."[]".'" value="'.$crow['id'].'" '.$checked.'>' : '<input type="radio" class="flat-red '.$slug.'" name="'.slugify($row['description']).'" value="'.$crow['id'].'" '.$checked.'>';
 											$image = (!empty($crow['photo'])) ? 'images/'.$crow['photo'] : 'images/profile.jpg';
 											$candidate .= '
-												<li>
-												'.$input.'</button><img src="'.$image.'" height="100px" width="100px" class="clist"><span class="cname clist">'.$crow['cname'].'</span>												
-												</li>
-											';
+											'.$input.'</button><img src="'.$image.'" height="100px" width="100px" class="clist"><span class="cname clist">'.$crow['cname'].'<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspManifesto: '.$crow['platform'].'<br><hr></span>											';
 											
 										}
-
 										$instruct = ($row['max_vote'] > 1) ? 'You may select up to '.$row['max_vote'].' candidates' : 'Select only one candidate';
 
 										echo '
@@ -133,13 +131,7 @@
 															<p>'.$instruct.'</p>
 															<div id="candidate_list">
 																	'.$candidate;'
-																		'.$sql = "SELECT * FROM candidates WHERE position_id='".$row['id']."'";
-																		$cquery = $conn->query($sql);
-																		while($crow = $cquery->fetch_assoc())
-																		{	
-																			echo "<b>Manifesto: ".$instruct = $crow['platform']."</b>";
-																		}
-																	'
+																
 															</div>
 														</div>
 													</div>
@@ -148,9 +140,8 @@
 																	';					 
 										
 										$candidate = '';
-
+									
 									}
-								}
 
 				        		?>
 				        		<div class="text-center">
@@ -160,7 +151,7 @@
 				        	</form>
 				        	<!-- End Voting Ballot -->
 				    		<?php
-
+									}
 				    ?>
 
 	        	</div>

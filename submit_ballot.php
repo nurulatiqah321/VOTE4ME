@@ -56,6 +56,6 @@
 		$_SESSION['error'][] = 'Select candidates to vote first';
 	}
 
-	header('location: home.php');
+	header('location: success.php');
 
 ?>
