@@ -85,10 +85,10 @@
 		    		$sql = "SELECT c.cname, COUNT(v.candidate_id) AS total
 			     			FROM candidates c
 			     			JOIN votes v ON c.id = v.candidate_id
-			    			WHERE  c.position_id = 
+							JOIN positions p ON p.id = c.position_id
+			    			WHERE  c.election_id = p.election_id
 			     			GROUP BY c.id
-			     			ORDER BY total DESC
-			     			LIMIT 1";
+			     			ORDER BY total DESC ";
 			     	$result = mysqli_query($connect, $sql);
                     
                     while($row = mysqli_fetch_array($result)){
