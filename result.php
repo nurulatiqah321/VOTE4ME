@@ -82,7 +82,7 @@
                 <tbody>
                   <?php
                     $connect = mysqli_connect("localhost", "root", "", "vote4me");		
-		    		$sql = "SELECT c.cname, COUNT(v.candidate_id) AS total
+		    		$sql = "SELECT c.cname,  COUNT(v.candidate_id) AS total
 			     			FROM candidates c
 			     			JOIN votes v ON c.id = v.candidate_id
 							JOIN positions p ON p.id = c.position_id
