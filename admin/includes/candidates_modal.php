@@ -78,7 +78,7 @@
                     <label for="position" class="col-sm-3 control-label">Position</label>
 
                     <div class="col-sm-9">
-                      <select class="form-control" id="position" name="position" required>
+                      <select class="form-control" id="position" name="position"  required>
                         <option value="" selected>- Select -</option>
                         <?php
                           $sql = "SELECT * FROM positions";
@@ -263,7 +263,4 @@
         </div>
     </div>
 </div>
-
-
-
      
