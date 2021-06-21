@@ -77,12 +77,13 @@
                   <th class="hidden"></th>
                   <!-- <th>Matric Number</th> -->
                   <th>Candidate</th>
+				  <th>Position</th>
                   <th>Total Result</th>
                 </thead>
                 <tbody>
                   <?php
                     $connect = mysqli_connect("localhost", "root", "", "vote4me");		
-		    		$sql = "SELECT c.cname,  COUNT(v.candidate_id) AS total
+		    		$sql = "SELECT c.cname,  COUNT(v.candidate_id) AS total, p.description
 			     			FROM candidates c
 			     			JOIN votes v ON c.id = v.candidate_id
 							JOIN positions p ON p.id = c.position_id
@@ -97,6 +98,7 @@
                           <td class='hidden'></td>
                           
                           <td>".strtoupper($row['cname'])."</td>
+						  <td>".strtoupper($row['description'])."</td>
                           <td>".$row['total']."</td>
                         </tr>
                       ";

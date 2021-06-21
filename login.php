@@ -28,6 +28,6 @@
 		$_SESSION['error'] = 'Input voter credentials first';
 	}
 
-	header('location: home.php');
+	header('location: studentlogin.php');
 
 ?>
