@@ -66,7 +66,7 @@
 			        </div>
 
 						<!-- Welcome message -->
-						<h3> Welcome to Vote4me </h3>
+						<img src="images/guidelines.jpg" alt="Guidelines" height="80%" width="80%">
 	        	</div>
 	        </div>
 	      </section>
